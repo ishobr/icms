@@ -1,0 +1,30 @@
+.x-border-layout-ct {
+	background-color: #fff
+}
+.icon-user {
+	background-image:url(../img/user_32.png) !important;
+}
+.icon-stat {
+	background-image:url(../img/line_chart_32.png) !important;
+}
+.icon-comment {
+	background-image:url(../img/text_bubble_32.png) !important;
+}
+.icon-content {
+	background-image:url(../img/files_32.png) !important;
+}
+.icon-dashboard {
+	background-image:url(../img/monitor_info_24.png) !important;
+}
+.icon-user-add {
+	background-image:url(../img/user_add_16.png) !important;
+}
+.icon-user-edit {
+	background-image:url(../img/user_write_16.png) !important;
+}
+.icon-user-del {
+	background-image:url(../img/user_delete_16.png) !important;
+}
+.btn-panel td {
+	padding-left: 6px;
+}

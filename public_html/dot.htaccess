@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^fcke.*	-	[L]
+RewriteRule ^awstat.*	-	[L]
+RewriteRule ^iepngfix.*	-	[L]
+RewriteRule !\.(txt|html|gif|css|js|jpg|jpeg|cgi|png|htc|swf|flv|jar|ico|xml|gz|bz2)$ index.php
+
