@@ -455,4 +455,15 @@ class ArticleController extends Action
 			$this->model->delFile($file_id);
 		return $_SERVER['HTTP_REFERER'];
 	}
+
+	public function getFile()
+	{
+		$file = new Files($this->params[0]);
+		ob_clean();
+		header('Content-Disposition: attachment; filename=' . basename($file->name) . '; size=' . $file->size);
+		header('Content-Type: ' . $file->type);
+		readfile($file->name);
+		die();
+	}
+
 }
