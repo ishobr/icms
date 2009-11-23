@@ -324,7 +324,11 @@ class Article extends Model
 
 		$this->permalink = $this->permalink();
 
-		$this->body = preg_replace('|<img[^>]*?src="([^"]*?)"[^>]*?>|i', '<img src="\\1" width="180" align="left" alt="" />', $this->body); 
+		$imgWidth = $this->folder->config['imgWidth'];
+		$this->body = preg_replace('|<img([^>]*?)width="([^"]*?)"([^>]*?)>|i', "<img\\1width=\"$imgWidth\"\\3>", $this->body); 
+
+		// remove height attribute
+		$this->body = preg_replace('|<img([^>]*?)height="([^"]*?)"([^>]*?)>|i', "<img\\1\\3>", $this->body); 
 
 		if (preg_match('@<img[^>]+src="/([^"]+)".*>@i', $this->body, $match)) {
 			$this->img = $match[1];
