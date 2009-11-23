@@ -14,6 +14,9 @@ if (isset($_GET['theme'])) $config['theme'] =& $_GET['theme'];
 // for m.namadomain.com
 if (strpos($_SERVER['HTTP_HOST'], 'm.') === 0) $config['theme'] = 'm';
 
+// Include pear module before autoload
+require 'Mail.php';
+
 function __autoload($class)
 {
 	if (!$class) return;
