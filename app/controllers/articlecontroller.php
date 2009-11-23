@@ -149,13 +149,15 @@ class ArticleController extends Action
 		$headers = array();
 		$headers['From'] = 'info@alkausar.org';
 		$headers['Subject'] = 'Alkausar - ' . $data->subject;
-		$mail =& Mail::factory('sendmail', array('sendmail_path' => '/usr/sbin/sendmail'));
 		$user = new User($this->folder);
 		$users = $user->getByNewsletter();
-		foreach ($users as &$u) {
-			if (!$u['mail']) continue;
-			$headers['To'] =&  $u->mail;
-			$mail->send($u['mail'], $headers, $body);
+		if ($users) {
+			$mail =& Mail::factory('sendmail', array('sendmail_path' => '/usr/sbin/sendmail'));
+			foreach ($users as &$u) {
+				if (!$u['mail']) continue;
+				$headers['To'] =&  $u->mail;
+				$mail->send($u['mail'], $headers, $body);
+			}
 		}
 	}
 
