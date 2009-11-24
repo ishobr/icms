@@ -30,19 +30,26 @@ Class Cache
 
 	public static function set($key, $val, $expire=90000) 
 	{
+		global $config;
 		$set_func = self::$backend . '_set';
+		$key = $config['theme'] . '_' . $key;
 		return self::$set_func($key, $val, $expire);
 	}
 
 	public static function get($key) 
 	{
+		global $config;
 		$get_func = self::$backend . '_get';
+		$key = $config['theme'] . '_' . $key;
 		return self::$get_func($key);
 	}
 
 	public static function delete($key, $timeout=0) 
 	{
+		global $config;
 		$get_func = self::$backend . '_delete';
+		if (strpos($key, $config['theme']) !== 0)
+			$key = $config['theme'] . '_' . $key;
 		return self::$get_func($key, $timeout);
 	}
 
@@ -54,6 +61,9 @@ Class Cache
 
 	public static function reg($key)
 	{
+		global $config;
+		$key = $config['theme'] . '_' . $key;
+
 		if (!$reg = self::get('reg'))
 			$reg = array();
 
@@ -63,15 +73,19 @@ Class Cache
 		self::set('reg', $reg);	
 	}
 
-	public static function regflush(&$path)
+	public static function regflush($path)
 	{
+		global $config;
+
 		if (!$reg = self::get('reg')) return;
 
-		$slash2 = strpos($path, '/', 1); // find 2nd slash
+		$path = $config['theme']  . '_' . $path;
+
+		$slash2 = strpos($path, '/', strlen($config['theme']) + 2); // find 2nd slash
 		$p1 = substr($path, 0, $slash2);
 		$n = 0;
 		foreach ($reg as &$r) {
-			if (strpos($r, $p1) == 0) {
+			if (strpos($r, $p1) === 0) {
 				self::delete($r, 17);
 				unset($reg[$n]);
 			}
@@ -83,7 +97,7 @@ Class Cache
 	private function file_name($key)
 	{
 		if (!$key) return;
-		$folder = sprintf(ROOT_DIR . '/cache/%x/', ord(substr($key, -1)) & 0xf); 
+		$folder = sprintf(ROOT_DIR . '/cache/%x/', ord(substr($key, -1)) & 0xf);
 		if (!file_exists($folder))
 			mkdir($folder);
 		return $folder . preg_replace('@\W+@', '_', $key);
