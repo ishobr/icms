@@ -1,6 +1,6 @@
 -- MySQL dump 10.11
 --
--- Host: localhost.localdomain    Database: icms
+-- Host: localhost    Database: icms
 -- ------------------------------------------------------
 -- Server version	5.0.45-log
 
@@ -41,6 +41,15 @@ CREATE TABLE `access_log` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `access_log`
+--
+
+LOCK TABLES `access_log` WRITE;
+/*!40000 ALTER TABLE `access_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `access_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `article`
 --
 
@@ -67,6 +76,15 @@ CREATE TABLE `article` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `article`
+--
+
+LOCK TABLES `article` WRITE;
+/*!40000 ALTER TABLE `article` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `article_comment`
 --
 
@@ -80,6 +98,15 @@ CREATE TABLE `article_comment` (
   PRIMARY KEY  (`article_id`,`comment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `article_comment`
+--
+
+LOCK TABLES `article_comment` WRITE;
+/*!40000 ALTER TABLE `article_comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_comment` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `article_field`
@@ -99,6 +126,15 @@ CREATE TABLE `article_field` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `article_field`
+--
+
+LOCK TABLES `article_field` WRITE;
+/*!40000 ALTER TABLE `article_field` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_field` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `article_file`
 --
 
@@ -116,6 +152,15 @@ CREATE TABLE `article_file` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `article_file`
+--
+
+LOCK TABLES `article_file` WRITE;
+/*!40000 ALTER TABLE `article_file` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_file` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `article_hits`
 --
 
@@ -131,6 +176,15 @@ CREATE TABLE `article_hits` (
   KEY `hits` (`hits`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `article_hits`
+--
+
+LOCK TABLES `article_hits` WRITE;
+/*!40000 ALTER TABLE `article_hits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_hits` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `article_rev`
@@ -151,6 +205,15 @@ CREATE TABLE `article_rev` (
   CONSTRAINT `article_rev_ibfk_1` FOREIGN KEY (`article_field`) REFERENCES `article_field` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `article_rev`
+--
+
+LOCK TABLES `article_rev` WRITE;
+/*!40000 ALTER TABLE `article_rev` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_rev` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `article_search`
@@ -175,6 +238,15 @@ CREATE TABLE `article_search` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `article_search`
+--
+
+LOCK TABLES `article_search` WRITE;
+/*!40000 ALTER TABLE `article_search` DISABLE KEYS */;
+/*!40000 ALTER TABLE `article_search` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `comment`
 --
 
@@ -197,6 +269,15 @@ CREATE TABLE `comment` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `comment`
+--
+
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `file`
 --
 
@@ -214,6 +295,15 @@ CREATE TABLE `file` (
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `file`
+--
+
+LOCK TABLES `file` WRITE;
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `folder`
@@ -239,6 +329,16 @@ CREATE TABLE `folder` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `folder`
+--
+
+LOCK TABLES `folder` WRITE;
+/*!40000 ALTER TABLE `folder` DISABLE KEYS */;
+INSERT INTO `folder` VALUES (0,NULL,'top','top','',1,0,1);
+/*!40000 ALTER TABLE `folder` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `folder_admin`
 --
 
@@ -256,6 +356,15 @@ CREATE TABLE `folder_admin` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `folder_admin`
+--
+
+LOCK TABLES `folder_admin` WRITE;
+/*!40000 ALTER TABLE `folder_admin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `folder_admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `folder_config`
 --
 
@@ -269,6 +378,15 @@ CREATE TABLE `folder_config` (
   PRIMARY KEY  (`folder_id`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `folder_config`
+--
+
+LOCK TABLES `folder_config` WRITE;
+/*!40000 ALTER TABLE `folder_config` DISABLE KEYS */;
+/*!40000 ALTER TABLE `folder_config` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `mail_log`
@@ -291,6 +409,15 @@ CREATE TABLE `mail_log` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `mail_log`
+--
+
+LOCK TABLES `mail_log` WRITE;
+/*!40000 ALTER TABLE `mail_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mail_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order_buyer`
 --
 
@@ -309,6 +436,15 @@ CREATE TABLE `order_buyer` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `order_buyer`
+--
+
+LOCK TABLES `order_buyer` WRITE;
+/*!40000 ALTER TABLE `order_buyer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_buyer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `order_item`
 --
 
@@ -324,6 +460,15 @@ CREATE TABLE `order_item` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `order_item`
+--
+
+LOCK TABLES `order_item` WRITE;
+/*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `order_tmp`
@@ -344,6 +489,15 @@ CREATE TABLE `order_tmp` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `order_tmp`
+--
+
+LOCK TABLES `order_tmp` WRITE;
+/*!40000 ALTER TABLE `order_tmp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_tmp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `poll_opt`
 --
 
@@ -359,6 +513,15 @@ CREATE TABLE `poll_opt` (
   CONSTRAINT `poll_opt_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `poll_opt`
+--
+
+LOCK TABLES `poll_opt` WRITE;
+/*!40000 ALTER TABLE `poll_opt` DISABLE KEYS */;
+/*!40000 ALTER TABLE `poll_opt` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `poll_vote`
@@ -385,6 +548,15 @@ CREATE TABLE `poll_vote` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `poll_vote`
+--
+
+LOCK TABLES `poll_vote` WRITE;
+/*!40000 ALTER TABLE `poll_vote` DISABLE KEYS */;
+/*!40000 ALTER TABLE `poll_vote` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -399,6 +571,15 @@ CREATE TABLE `sessions` (
   KEY `access` (`access`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `trash`
@@ -416,6 +597,15 @@ CREATE TABLE `trash` (
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `trash`
+--
+
+LOCK TABLES `trash` WRITE;
+/*!40000 ALTER TABLE `trash` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trash` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -443,6 +633,15 @@ CREATE TABLE `user` (
 SET character_set_client = @saved_cs_client;
 
 --
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_tmp`
 --
 
@@ -465,6 +664,15 @@ CREATE TABLE `user_tmp` (
   UNIQUE KEY `mail` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Dumping data for table `user_tmp`
+--
+
+LOCK TABLES `user_tmp` WRITE;
+/*!40000 ALTER TABLE `user_tmp` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_tmp` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -475,4 +683,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-11-12  7:48:16
+-- Dump completed on 2009-12-04  2:41:39
