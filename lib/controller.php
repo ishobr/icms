@@ -69,7 +69,7 @@ class Ctrl
 		list($folder, $action, $params) = self::explodeUri($uri);
 		$obj = self::fetchContent($folder, $action, $params);
 
-		if (strpos($uri, 'search')) {
+		if (strpos($uri, 'search') || strpos($uri, 'service')) {
 			$exp = 300;
 		} else {
 			$exp = 0;
