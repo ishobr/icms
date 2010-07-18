@@ -36,18 +36,20 @@ class UserController extends Action
 	{
 		View::$title = 'Login';	
 
+		$user = new User();
+
 		if (isset($_POST['submit'])) {
-			if ($this->model->auth($_POST['uid'], $_POST['pwd'])) {
-				if (isset($_SESSION['REFERER'])) {
-					$ref = $_SESSION['REFERER'];
-					$_SESSION['REFERER'] = NULL;
+			if ($user->auth($_POST['uid'], $_POST['pwd'])) {
+				if (isset($_SESSION['LOGIN_REFERER'])) {
+					$ref = $_SESSION['LOGIN_REFERER'];
+					unset($_SESSION['LOGIN_REFERER']);
 					return $ref;
 				}
 				return '/';
 			}
 		} else {
-			if (!isset($_SESSION['REFERER']) && isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'user') === FALSE)
-				$_SESSION['REFERER'] =& $_SERVER['HTTP_REFERER'];
+			if (!isset($_SESSION['LOGIN_REFERER']) && isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'user') === FALSE)
+				$_SESSION['LOGIN_REFERER'] = $_SERVER['HTTP_REFERER'];
 		}
 		return array();
 	}

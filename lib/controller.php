@@ -148,9 +148,11 @@ class Ctrl
 			return $ret;
 		}
 		
-		if (strpos($data, '/') === 0 || strpos($data, 'http') === 0)
+		if (strpos($data, '/') === 0 || strpos($data, 'http') === 0) {
+			if (strpos($data, '/user/login') === 0 || strpos($data, '/error/denied') === 0)
+				$_SESSION['LOGIN_REFERER'] = $_SERVER['REQUEST_URI'];	
 			self::redirect($data);
-
+		}
 
 		// anything else
 		echo $data;
